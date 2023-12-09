@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export const middleware = async (request: NextRequest, response: NextResponse) => {
+export const middleware = async (request: NextRequest) => {
   // reverse proxy
   if (request.nextUrl?.pathname?.startsWith('/proxy')) {
     const nextUrl = request.nextUrl.clone()
@@ -24,5 +24,5 @@ export const middleware = async (request: NextRequest, response: NextResponse) =
     }
   }
 
-  return response
+  return NextResponse.next()
 }
