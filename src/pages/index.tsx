@@ -19,6 +19,9 @@ export default function Home() {
           debug={true}
           forward={['dataLayer.push']}
           resolveUrl={(url, location) => {
+            if (url.href.startsWith(location.origin + '/proxy')) {
+              return url
+            }
 
             // CORS 対策でrequestをreverse proxyする
             if (url.href.startsWith('https://')) {
@@ -26,12 +29,10 @@ export default function Home() {
               const path = url.pathname === '/' ? '' : url.pathname
               const search = url.search === '?' ? '' : url.search
               const proxyUrl = new URL(location.origin + '/proxy' + path + search)
-              console.log('-----------------')
               proxyUrl.searchParams.append(
                 'target_party_host',
                 host
               )
-              console.log(proxyUrl)
               return proxyUrl
             }
             return url

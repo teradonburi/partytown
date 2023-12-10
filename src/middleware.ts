@@ -15,8 +15,6 @@ export const middleware = async (request: NextRequest) => {
         'https://' + decodeURIComponent(origin) + (pathname ? pathname : '') + query
       try {
         const requestHeaders = new Headers(request.headers)
-
-        console.log(url)
         return NextResponse.rewrite(new URL(url), {
           request: { headers: requestHeaders },
         })
