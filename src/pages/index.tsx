@@ -26,10 +26,12 @@ export default function Home() {
               const path = url.pathname === '/' ? '' : url.pathname
               const search = url.search === '?' ? '' : url.search
               const proxyUrl = new URL(location.origin + '/proxy' + path + search)
+              console.log('-----------------')
               proxyUrl.searchParams.append(
                 'target_party_host',
                 host
               )
+              console.log(proxyUrl)
               return proxyUrl
             }
             return url

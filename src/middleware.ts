@@ -12,14 +12,18 @@ export const middleware = async (request: NextRequest) => {
       const query =
         searchParam.toString().length > 0 ? `?${searchParam.toString()}` : ''
       const url =
-        decodeURIComponent(origin) + (pathname ? pathname : '') + query
+        'https://' + decodeURIComponent(origin) + (pathname ? pathname : '') + query
       try {
         const requestHeaders = new Headers(request.headers)
+
+        console.log(url)
         return NextResponse.rewrite(new URL(url), {
           request: { headers: requestHeaders },
         })
       } catch (e) {
-        console.warn(`reverse proxy failed: ${url}`)
+        if(e instanceof Error){
+          console.warn(`reverse proxy failed: ${url}, ${e.toString()}`)
+        }
       }
     }
   }
