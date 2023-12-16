@@ -29,3 +29,9 @@ yarn build
 # or
 pnpm build
 ```
+
+create `.env.local` file
+
+```
+NEXT_PUBLIC_GTM_ID={your google tag manager container id}
+```

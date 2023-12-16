@@ -11,6 +11,15 @@ export const config = {
 	unstable_runtimeJS: false,
 };
 
+declare global {
+  interface Window {
+    dataLayer: {
+      push: (arg: any) => void
+    }
+  }
+}
+
+
 export default function Home() {
   return (
     <>
@@ -39,7 +48,7 @@ export default function Home() {
           }}
         />     
         {/** Google Tag Manager */}
-        <script type="text/partytown" defer dangerouslySetInnerHTML={{__html: gtmScript}}></script>
+        <script  dangerouslySetInnerHTML={{__html: gtmScript}} />
       </Head>
       <div>test partytown</div>      
     </>
