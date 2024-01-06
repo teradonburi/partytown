@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <Partytown
+        {/* <Partytown
           debug={true}
           forward={['dataLayer.push']}
           resolveUrl={(url, location) => {
@@ -46,9 +46,9 @@ export default function Home() {
             }
             return url
           }}
-        />     
+        />      */}
         {/** Google Tag Manager */}
-        <script  dangerouslySetInnerHTML={{__html: gtmScript}} />
+        <script dangerouslySetInnerHTML={{__html: gtmScript}} />
       </Head>
       <div>test partytown</div>      
     </>
