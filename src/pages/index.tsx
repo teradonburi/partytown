@@ -1,5 +1,5 @@
 
-// import { Partytown } from '@builder.io/partytown/react'
+import { Partytown } from '@builder.io/partytown/react'
 import Head from 'next/head';
 const gtmScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        {/* <Partytown
+        <Partytown
           debug={true}
           forward={['dataLayer.push']}
           resolveUrl={(url, location) => {
@@ -46,9 +46,9 @@ export default function Home() {
             }
             return url
           }}
-        />      */}
+        />     
         {/** Google Tag Manager */}
-        <script /*type="text/partytown"*/ dangerouslySetInnerHTML={{__html: gtmScript}} />
+        <script type="text/partytown" dangerouslySetInnerHTML={{__html: gtmScript}} />
       </Head>
       <div>test partytown</div>      
     </>
