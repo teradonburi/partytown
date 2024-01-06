@@ -48,7 +48,7 @@ export default function Home() {
           }}
         />     
         {/** Google Tag Manager */}
-        <script type="text/partytown" dangerouslySetInnerHTML={{__html: gtmScript}} />
+        <script /*type="text/partytown"*/ dangerouslySetInnerHTML={{__html: gtmScript}} />
       </Head>
       <div>test partytown</div>      
     </>
